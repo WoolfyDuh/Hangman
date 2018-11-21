@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Hangman {
 
-    private static String[] words = {"life", "lemmons", "love", "iq", "mediacollege", "leanderkruiden", "oliebollen", "makker", "zeg", "random", "bureau", "beeldscherm"};
+    private static String[] words = {"life", "lemmons", "love", "kagebuushinnojutstu", "mediacollege", "leanderkruiden", "oliebollen", "makker", "kloteren", "random", "bureau", "beeldscherm"};
     private static String word = words[(int) (Math.random() * words.length)];
     private static String asterisk = new String(new char[word.length()]).replace("\0", "*");
     private static int count = 0;
@@ -27,13 +27,13 @@ public class Hangman {
         System.out.println("Good luck have fun!");
         System.out.println(" ");
         while (count < 7 && asterisk.contains("*")) {
-			if(s.equals("kamikazi")) {System.exit(0);}
             System.out.println("raad een letter AUB!!");
             System.out.println(asterisk);
             String guess = sc.next();
             hang(guess);
         }
         sc.close();
+		if(s.equals("stop")) {System.exit(0);}
 
     }
 
@@ -49,6 +49,7 @@ public class Hangman {
 			} else {
 				newasterisk += "*";
 			}
+			if(s.equals("stop")) {System.exit(0);}
 		}
 
 		if (asterisk.equals(newasterisk)) {
@@ -60,6 +61,7 @@ public class Hangman {
 		if (asterisk.equals(word)) {
 			System.out.println("Je hebt gewonnen!!! " + word);
 		}
+		if(s.equals("stop")) {System.exit(0);}
 	}
 
 	public static void hangmanImage() {
@@ -71,6 +73,7 @@ public class Hangman {
 			System.out.println();
 			System.out.println("___|___");
 			System.out.println();
+			if(s.equals("stop")) {System.exit(0);}
 		}
 		if (count == 2) {
 			System.out.println("FOUT, Probeer een andere letter");
@@ -82,6 +85,7 @@ public class Hangman {
 			System.out.println("   |");
 			System.out.println("   |");
 			System.out.println("___|___");
+			if(s.equals("stop")) {System.exit(0);}
 		}
 		if (count == 3) {
 			System.out.println("FOUT, Probeer een andere letter");
@@ -94,6 +98,7 @@ public class Hangman {
 			System.out.println("   |");
 			System.out.println("   | ");
 			System.out.println("___|___");
+			if(s.equals("stop")) {System.exit(0);}
 		}
 		if (count == 4) {
 			System.out.println("FOUT, Probeer een andere letter");
@@ -106,6 +111,7 @@ public class Hangman {
 			System.out.println("   |");
 			System.out.println("   |");
 			System.out.println("___|___");
+			if(s.equals("stop")) {System.exit(0);}
 		}
 		if (count == 5) {
 			System.out.println("FOUT, Probeer een andere letter");
@@ -118,6 +124,7 @@ public class Hangman {
 			System.out.println("   |           |");
 			System.out.println("   |");
 			System.out.println("___|___");
+			if(s.equals("stop")) {System.exit(0);}
 		}
 		if (count == 6) {
 			System.out.println("FOUT, Probeer een andere letter");
@@ -130,6 +137,7 @@ public class Hangman {
 			System.out.println("   |           |");
 			System.out.println("   |          / \\ ");
 			System.out.println("___|___      /   \\");
+			if(s.equals("stop")) {System.exit(0);}
 		}
 		if (count == 7) {
 			System.out.println("VERLOREN");
@@ -143,6 +151,9 @@ public class Hangman {
 			System.out.println("   |          / \\ ");
 			System.out.println("___|___      /   \\");
 			System.out.println("VERLOREN! het woord was " + word);
+			if(s.equals("stop")) {System.exit(0);}
 		}
+		if(s.equals("stop")) {System.exit(0);}
 	}
+
 }
